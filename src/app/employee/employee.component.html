@@ -1,0 +1,128 @@
+<div class="container mt-5">
+    <h2>Employee Details</h2>
+    <div class="card mt-3">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+                <form [formGroup]="formValue" validate class="form" (ngSubmit)="postEmployeeData()">
+                    <div class="input-group mb-3">
+                        <div class="row">
+
+                            <div class="col-3" style="margin-left:5px;">
+                                <div class="form-group " >
+                                    <input type="text" class="form-control " formControlName="employeeName"
+                                        placeholder="Enter Name"
+                                        [ngClass]="{'is-invalid':submitted && formValue.controls['employeeName'].errors}">
+                                    <label class="text-danger"
+                                        *ngIf="submitted && formValue.controls['employeeName'].errors">Name
+                                        is required</label>
+                                </div>
+                            </div>
+
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" required formControlName="email"
+                                        placeholder="Enter Email"
+                                        [ngClass]="{'is-invalid':submitted && formValue.controls['email'].errors}">
+                                    <label class="text-danger"
+                                        *ngIf="submitted && formValue.controls['email'].errors">Enter
+                                        a valid email
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" required formControlName="salary"
+                                        placeholder="Enter Salary"
+                                        [ngClass]="{'is-invalid':submitted && formValue.controls['salary'].errors}">
+                                    <label class="text-danger"
+                                        *ngIf="submitted && formValue.controls['salary'].errors">Enter salary
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-3" style="margin-left:5px;margin-top: 7px;">
+                                <div class="input-group-append ml-5">
+                                    <button class="btn btn-outline-success"  type="submit">Add
+                                        employee
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+                <!-- </li>
+        </ul> -->
+            </div>
+
+        </nav>
+    </div>
+    <div class="card">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of employeeData let i=index">
+
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{row.employeeName}}</td>
+                    <td>{{row.email}}</td>
+                    <td>{{row.salary}}</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-info" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" (click)="onEdit(row)">
+                            Edit
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-danger my-2 my-sm-0 float-right ml-5" type="submit"
+                            (click)="removeEmployee(row)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Details</h5>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="updateForm" >
+                        <label>Employee Name:</label>
+                        <input type="text" class="form-control" formControlName="employeeName" placeholder="Enter Name"
+                            aria-label="Employee Name" aria-describedby="basic-addon2">
+                        <label>Email:</label>
+                        <input type="email" class="form-control" formControlName="email" placeholder="Enter Email"
+                            aria-label="Email" aria-describedby="basic-addon2">
+                        <label>Salary:</label>
+                        <input type="number" class="form-control" formControlName="salary" placeholder="Enter Salary"
+                            aria-label="Salary" aria-describedby="basic-addon2">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal"
+                                id="cancel" (click)="reload()">Close</button>
+                            <button type="button" class="btn btn-success" (click)="updateEmployee()">Update</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>

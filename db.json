@@ -1,0 +1,56 @@
+{
+  "posts": [
+    {
+      "id": 39,
+      "employeeName": "ananthu",
+      "email": "annathu@gmail.com",
+      "salary": 53212
+    },
+    {
+      "id": 43,
+      "employeeName": "test",
+      "email": "test@h.com",
+      "salary": 10000
+    },
+    {
+      "id": 44,
+      "employeeName": "varsha",
+      "email": "varsha@gmail.com",
+      "salary": "2222"
+    },
+    {
+      "id": 47,
+      "employeeName": "Ananthu",
+      "email": "anathu@hgh.com",
+      "salary": "1235"
+    },
+    {
+      "id": 48,
+      "employeeName": "ssf",
+      "email": "wsd@hn.com",
+      "salary": "34567"
+    },
+    {
+      "id": 49,
+      "employeeName": "cgvh",
+      "email": "ae@ggh.com",
+      "salary": "2234"
+    },
+    {
+      "id": 50,
+      "employeeName": "varsh",
+      "email": "cg@gh.com",
+      "salary": "45699"
+    },
+    {
+      "id": 51,
+      "employeeName": "weru",
+      "email": "d@df.com",
+      "salary": "20000"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
